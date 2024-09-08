@@ -9,21 +9,21 @@ def play_alarm():
     playsound('digitalalarmclocksound.mp3')
 
 # Judul Aplikasi
-st.title("Timer dengan Popup Notifikasi dan Suara")
+st.title("Simple Study Timer App")
 
 # Input waktu dari pengguna
-hours = st.number_input("Masukkan jam", min_value=0, step=1, value=0)
-minutes = st.number_input("Masukkan menit", min_value=0, step=1, value=0)
-seconds = st.number_input("Masukkan detik", min_value=0, step=1, value=0)
+hours = st.number_input("Input hour", min_value=0, step=1, value=0)
+minutes = st.number_input("Input minute", min_value=0, step=1, value=0)
+seconds = st.number_input("Input second", min_value=0, step=1, value=0)
 
 # Tombol untuk memulai timer
-if st.button("Mulai Timer"):
+if st.button("Start Study!"):
     total_seconds = hours * 3600 + minutes * 60 + seconds
 
     if total_seconds == 0:
-        st.warning("Masukkan waktu yang valid!")
+        st.warning("Input valid time!")
     else:
-        st.write(f"Timer dimulai untuk {hours} jam, {minutes} menit, dan {seconds} detik...")
+        st.write(f"Study timer is set for {hours} hour(s), {minutes} minute(s), dan {seconds} second(s)...")
         
         # Placeholder untuk sisa waktu
         timer_placeholder = st.empty()
@@ -34,7 +34,7 @@ if st.button("Mulai Timer"):
             minutes_left = (total_seconds % 3600) // 60
             seconds_left = total_seconds % 60
 
-            timer_placeholder.text(f"Sisa waktu: {hours_left} jam, {minutes_left} menit, {seconds_left} detik")
+            timer_placeholder.text(f"Time Remaining: {hours_left} hour(s), {minutes_left} minute(s), {seconds_left} second(s)")
             time.sleep(1)
             total_seconds -= 1
 
@@ -46,5 +46,5 @@ if st.button("Mulai Timer"):
         st_javascript('alert("⏰ Waktu habis!");')
 
         # Tombol untuk menghentikan alarm
-        if st.button("Stop Alarm"):
+        if st.button("Reset Alarm"):
             st.stop()
