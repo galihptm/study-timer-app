@@ -43,7 +43,7 @@ if st.button("Start Study!"):
         alarm_thread.start()
 
         # Menampilkan popup notifikasi waktu habis
-        st_javascript('alert("⏰ Waktu habis!");')
+        st_javascript('alert("⏰ Time Overr!");')
 
         # Tombol untuk menghentikan alarm
         if st.button("Reset Alarm"):
